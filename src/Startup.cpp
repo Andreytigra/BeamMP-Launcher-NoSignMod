@@ -546,13 +546,13 @@ void PreGame(const beammp_fs_string& GamePath) {
 
         std::string FileHash = fs::exists(ZipPath) ? Utils::GetSha256HashReallyFastFile(ZipPath) : "";
 
-        if (FileHash != LatestHash) {
+        /*if (FileHash != LatestHash) {
             info("Downloading BeamMP Update " + LatestHash);
             HTTP::Download("https://backend.beammp.com/builds/client?download=true"
                            "&pk="
                     + PublicKey + "&branch=" + Branch,
                 ZipPath, LatestHash);
-        }
+        }*/
 
         beammp_fs_string Target(GetGamePath() / beammp_wide("mods/unpacked/beammp"));
 
