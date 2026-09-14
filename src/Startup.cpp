@@ -352,7 +352,7 @@ void CheckForUpdates(const std::string& CV) {
     if (FileHash != LatestHash && IsOutdated(Version(VersionStrToInts(GetVer() + GetPatch())), Version(VersionStrToInts(LatestVersion)))) {
         if (!options.no_update) {
             info("Launcher update " + LatestVersion + " found!");
-            info("Please update manually.")
+            info("Please update manually.");
 #if defined(__linux__)
             error("Auto update is NOT implemented for the Linux version. Please update manually ASAP as updates contain security patches.");
 #else
