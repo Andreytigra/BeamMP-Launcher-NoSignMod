@@ -352,10 +352,11 @@ void CheckForUpdates(const std::string& CV) {
     if (FileHash != LatestHash && IsOutdated(Version(VersionStrToInts(GetVer() + GetPatch())), Version(VersionStrToInts(LatestVersion)))) {
         if (!options.no_update) {
             info("Launcher update " + LatestVersion + " found!");
+            info("Please update manually.")
 #if defined(__linux__)
             error("Auto update is NOT implemented for the Linux version. Please update manually ASAP as updates contain security patches.");
 #else
-            info("Downloading Launcher update " + LatestHash);
+            /*info("Downloading Launcher update " + LatestHash);
             std::wstring DownloadLocation = GetBP() / (beammp_wide("new_") + GetEN());
             if (HTTP::Download(
                     "https://backend.beammp.com/builds/launcher?download=true"
@@ -392,7 +393,7 @@ void CheckForUpdates(const std::string& CV) {
                     }
                 }
                 throw std::runtime_error("Failed to download the launcher update! Please try manually updating it, https://docs.beammp.com/FAQ/Update-launcher/");
-            }
+            }*/
 #endif
         } else {
             warn("Launcher update was found, but not updating because --no-update or --dev was specified.");
